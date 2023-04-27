@@ -30,6 +30,28 @@ RSpec.describe Warehouse, type: :model do
 
         expect(warehouse.valid?).to eq false
       end
+
+      it 'false when address is empty' do
+        warehouse =  Warehouse.new(name: 'Rio', code: 'RIO', city: 'Rio', area: 60_000,
+          address: '', cep:'20100-000', description: 'Galpão da zona portuária do Rio')
+
+        expect(warehouse.valid?).to eq false
+      end
+
+      it 'false when cep is empty' do
+        warehouse =  Warehouse.new(name: 'Rio', code: 'RIO', city: 'Rio', area: 60_000,
+          address: 'Endereço', cep:'', description: 'Galpão da zona portuária do Rio')
+
+        expect(warehouse.valid?).to eq false
+      end
+
+      it 'false description is empty' do
+        warehouse =  Warehouse.new(name: 'Rio', code: 'RIO', city: 'Rio', area: 60_000,
+          address: 'Endereço', cep:'20100-000', description: '')
+
+        expect(warehouse.valid?).to eq false
+      end
+
     end
 
     context 'uniqueness' do
@@ -43,7 +65,6 @@ RSpec.describe Warehouse, type: :model do
                                           description: 'Outra descrição')
 
         expect(second_warehouse).not_to be_valid
-        # expect(second_warehouse.valid?).to eq false
       end
     end
 
