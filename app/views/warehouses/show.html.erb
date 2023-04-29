@@ -11,4 +11,11 @@
     <dd><%= @warehouse.area %> m²</dd>
 </dl>
 
+<div>
+<%= link_to 'Editar', edit_warehouse_path(@warehouse.id) %>
+<%= button_to 'Remover', warehouse_path(@warehouse.id), method: :delete %>
+</div>
+
+<div>
 <%= link_to 'Voltar', root_path %>
+</div>
