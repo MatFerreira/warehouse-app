@@ -34,7 +34,7 @@ class WarehousesController < ApplicationController
 
   def destroy
     @warehouse.destroy
-    redirect_to root_path, notice: 'Galpão removido com sucesso '
+    redirect_to root_path, notice: 'Galpão removido com sucesso'
   end
 
   private

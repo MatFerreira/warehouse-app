@@ -1,0 +1,25 @@
+<h2><%= @supplier.brand_name %></h2>
+
+<dl>
+    <dt>Nome corporativo:</dt>
+    <dd><%= @supplier.corporate_name %></dd>
+
+    <dt>Número de registro:</dt>
+    <dd><%= @supplier.registration_number %></dd>
+
+    <dt>Endereço:</dt>
+    <dd><%= @supplier.full_address %></dd>
+
+    <dt>Cidade:</dt>
+    <dd><%= @supplier.city %></dd>
+
+    <dt>Estado:</dt>
+    <dd><%= @supplier.state %></dd>
+
+    <dt>Email:</dt>
+    <dd><%= @supplier.email %></dd>
+</dl>
+
+<div>
+    <%= link_to 'Editar', edit_supplier_path(@supplier) %>
+</div>
