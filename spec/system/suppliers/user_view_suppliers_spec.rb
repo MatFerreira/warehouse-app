@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Usuário visita index de fornecedores' do
   it 'e vê lista de cadastro' do
     supplier = Supplier.create!(corporate_name: 'Industria ex', brand_name: 'Marca',
-                                registration_number: '000000', full_address: 'Av Industrial',
+                                registration_number: '123456789abcd', full_address: 'Av Industrial',
                                 city: 'Lugar nenhum', state: 'ex', email: 'exemplo@mail.com')
 
     visit root_path

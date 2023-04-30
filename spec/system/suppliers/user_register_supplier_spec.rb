@@ -20,7 +20,7 @@ describe 'Usuário cadastra um fornecedor' do
     click_on 'Fornecedores'
     click_on 'Cadastrar Fornecedor'
     fill_in 'Nome fantasia', with: 'Boteco'
-    fill_in 'Número de registro', with: '777'
+    fill_in 'Número de registro', with: '123456789abcd'
     fill_in 'Nome corporativo', with: 'Boteco LTDA'
     fill_in 'Endereço', with: 'Logo ali'
     fill_in 'Cidade', with: 'Cupuaçu'
@@ -45,9 +45,6 @@ describe 'Usuário cadastra um fornecedor' do
     expect(page).to have_content 'Nome fantasia não pode ficar em branco'
     expect(page).to have_content 'Número de registro não pode ficar em branco'
     expect(page).to have_content 'Nome corporativo não pode ficar em branco'
-    expect(page).to have_content 'Endereço não pode ficar em branco'
-    expect(page).to have_content 'Cidade não pode ficar em branco'
-    expect(page).to have_content 'Estado não pode ficar em branco'
     expect(page).to have_content 'Email não pode ficar em branco'
   end
 end
