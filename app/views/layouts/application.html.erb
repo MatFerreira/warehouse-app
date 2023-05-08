@@ -11,12 +11,32 @@
 
   <body>
     <header>
-      <h1>Galpões & Estoque</h1>
+      <%= link_to root_path do %>
+        <h1>Galpões & Estoque</h1>
+      <% end %>
       <nav>
         <ul>
-          <li><%= link_to 'Início', root_path %></li>
           <li><%= link_to 'Fornecedores', suppliers_path %></li>
           <li><%= link_to 'Modelos de Produtos', product_models_path %></li>
+          <li><%= link_to 'Registrar Pedido', new_order_path %></li>
+          <% if user_signed_in? %>
+            <li>
+              <%= current_user.description %> <%= button_to 'Sair', destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to 'Entrar', new_user_session_path %>
+            </li>
+          <% end %>
+          <% if user_signed_in? %>
+            <li>
+              <%= form_with url: search_orders_path, method: :get do |f|  %>
+                <%= f.label :query, 'Buscar Pedido' %>
+                <%= f.text_field :query %>
+                <%= f.submit 'Buscar' %>
+              <% end %>
+            </li>
+          <% end %>
         </ul>
       </nav>
     </header>
@@ -24,6 +44,9 @@
     <main>
       <div>
         <%= flash[:notice] %>
+      </div>
+      <div>
+        <%= flash[:alert] %>
       </div>
       <%= yield %>
     </main>
